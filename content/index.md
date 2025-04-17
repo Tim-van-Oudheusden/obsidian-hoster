@@ -12,7 +12,7 @@ socialImage: images/cover.png
 # Guides
 [[How to synchronize Obsidian via Git for beginners]]
 
+[[Building a server at home]]
+
 # Projects
 [[A take on Logistic Regression in NodeJS]]
-
-[[Building a server at home]]

@@ -67,5 +67,5 @@ If it's just you and maybe one other close person, I'd just create a Tailscale a
 
 If you are tech savvy person and care about full independence. Consider [Headscale](https://headscale.net/stable/) as your personal Tailscale server instead of the public ones.
 
-# Conclusion
+# Writer's opinion
 Ever since the implosion in America earlier in 2025, I made my plans a reality and decided to distance myself as much as possible from American service providers and service providers in general. So I made the leap, researched as much as possible and set up my own server at home. And while I am much more familiar with technology due to my profession as a Software Engineer. I hope this inspires someone and helps them build their own server, even if they don't know much about technology to begin with.
