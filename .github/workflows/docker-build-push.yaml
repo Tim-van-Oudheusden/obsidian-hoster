@@ -2,7 +2,7 @@ name: Docker build & push image
 
 on:
   pull_request:
-    branches: [v4]
+    branches: [main]
     paths:
       - .github/workflows/docker-build-push.yaml
       - src/**

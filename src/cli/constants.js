@@ -6,7 +6,7 @@ import { readFileSync } from "fs"
  */
 export const ORIGIN_NAME = "origin"
 export const UPSTREAM_NAME = "upstream"
-export const WEBSITE_SOURCE_BRANCH = "v4"
+export const WEBSITE_SOURCE_BRANCH = "main"
 export const cwd = process.cwd()
 export const cacheDir = path.join(cwd, ".website-cache")
 export const cacheFile = "./src/.website-cache/transpiled-build.mjs"
