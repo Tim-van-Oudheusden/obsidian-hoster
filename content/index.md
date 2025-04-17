@@ -12,9 +12,9 @@ socialImage: images/cover.png
 [[Yoga Nidra, a way to be at peace in chaos]]
 
 # Guides
-[[How to synchronize Obsidian via Git for beginners]]
-
 [[Building a server at home]]
+
+[[How to synchronize Obsidian via Git for beginners]]
 
 # Projects
 [[A take on Logistic Regression in NodeJS]]
