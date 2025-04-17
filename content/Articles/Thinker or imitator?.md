@@ -1,5 +1,4 @@
 ---
-draft: "true"
 title: Thinker or imitator?
 socialImage: images/cover.png
 publishDate: 2025-04-18
