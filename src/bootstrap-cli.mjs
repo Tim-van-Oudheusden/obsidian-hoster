@@ -29,7 +29,7 @@ yargs(hideBin(process.argv))
       await handleRestore(argv)
     },
   )
-  .command("sync", "Sync your QuarWebsitetz to and from GitHub.", SyncArgv, async (argv) => {
+  .command("sync", "Sync to and from GitHub.", SyncArgv, async (argv) => {
     await handleSync(argv)
   })
   .command("build", "Build Website into a bundle of static HTML files", BuildArgv, async (argv) => {
