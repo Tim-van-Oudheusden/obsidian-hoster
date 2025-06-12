@@ -32,6 +32,9 @@ export default {
     explorer: {
       title: "探索",
     },
+    readerMode: {
+      title: "閱讀模式",
+    },
     footer: {
       createdWith: "Created by",
     },

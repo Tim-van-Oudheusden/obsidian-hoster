@@ -32,6 +32,9 @@ export default {
     explorer: {
       title: "エクスプローラー",
     },
+    readerMode: {
+      title: "リーダーモード",
+    },
     footer: {
       createdWith: "作成",
     },

@@ -32,6 +32,9 @@ export default {
     explorer: {
       title: "Fájlböngésző",
     },
+    readerMode: {
+      title: "Olvasó mód",
+    },
     footer: {
       createdWith: "Készítve ezzel:",
     },

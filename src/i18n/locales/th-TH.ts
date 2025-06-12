@@ -32,6 +32,9 @@ export default {
     explorer: {
       title: "รายการหน้า",
     },
+    readerMode: {
+      title: "โหมดอ่าน",
+    },
     footer: {
       createdWith: "สร้างด้วย",
     },

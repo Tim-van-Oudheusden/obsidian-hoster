@@ -32,6 +32,9 @@ export default {
     explorer: {
       title: "Explorator",
     },
+    readerMode: {
+      title: "Modul de citire",
+    },
     footer: {
       createdWith: "Creat cu",
     },

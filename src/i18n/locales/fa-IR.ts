@@ -32,6 +32,9 @@ export default {
     explorer: {
       title: "مطالب",
     },
+    readerMode: {
+      title: "حالت خواندن",
+    },
     footer: {
       createdWith: "ساخته شده با",
     },

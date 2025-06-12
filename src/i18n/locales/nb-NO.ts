@@ -32,6 +32,9 @@ export default {
     explorer: {
       title: "Utforsker",
     },
+    readerMode: {
+      title: "Læsemodus",
+    },
     footer: {
       createdWith: "Laget med",
     },

@@ -32,6 +32,9 @@ export default {
     explorer: {
       title: "Trong bài này",
     },
+    readerMode: {
+      title: "Chế độ đọc",
+    },
     footer: {
       createdWith: "Được tạo bởi",
     },

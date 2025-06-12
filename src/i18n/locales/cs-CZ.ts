@@ -32,6 +32,9 @@ export default {
     explorer: {
       title: "Procházet",
     },
+    readerMode: {
+      title: "Režim čtečky",
+    },
     footer: {
       createdWith: "Vytvořeno pomocí",
     },

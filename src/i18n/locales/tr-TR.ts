@@ -32,6 +32,9 @@ export default {
     explorer: {
       title: "Gezgin",
     },
+    readerMode: {
+      title: "Okuma modu",
+    },
     footer: {
       createdWith: "Şununla oluşturuldu",
     },

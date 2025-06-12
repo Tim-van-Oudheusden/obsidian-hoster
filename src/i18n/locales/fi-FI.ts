@@ -32,6 +32,9 @@ export default {
     explorer: {
       title: "Selain",
     },
+    readerMode: {
+      title: "Lukijatila",
+    },
     footer: {
       createdWith: "Luotu käyttäen",
     },

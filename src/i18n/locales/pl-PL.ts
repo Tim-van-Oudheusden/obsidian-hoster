@@ -32,6 +32,9 @@ export default {
     explorer: {
       title: "Przeglądaj",
     },
+    readerMode: {
+      title: "Tryb czytania",
+    },
     footer: {
       createdWith: "Stworzone z użyciem",
     },

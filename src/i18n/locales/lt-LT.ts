@@ -32,6 +32,9 @@ export default {
     explorer: {
       title: "Naršyklė",
     },
+    readerMode: {
+      title: "Modalità lettore",
+    },
     footer: {
       createdWith: "Sukurta Su",
     },

@@ -32,6 +32,9 @@ export default {
     explorer: {
       title: "탐색기",
     },
+    readerMode: {
+      title: "리더 모드",
+    },
     footer: {
       createdWith: "Created by",
     },

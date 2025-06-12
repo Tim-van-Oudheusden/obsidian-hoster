@@ -32,6 +32,9 @@ export default {
     explorer: {
       title: "Explorador",
     },
+    readerMode: {
+      title: "Modo lector",
+    },
     footer: {
       createdWith: "Creado con",
     },

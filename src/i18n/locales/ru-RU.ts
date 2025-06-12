@@ -32,6 +32,9 @@ export default {
     explorer: {
       title: "Проводник",
     },
+    readerMode: {
+      title: "Режим чтения",
+    },
     footer: {
       createdWith: "Создано с помощью",
     },

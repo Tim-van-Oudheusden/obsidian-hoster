@@ -32,6 +32,9 @@ export default {
     explorer: {
       title: "Verkenner",
     },
+    readerMode: {
+      title: "Leesmodus",
+    },
     footer: {
       createdWith: "Gemaakt met",
     },
