@@ -433,21 +433,20 @@ export async function handleBuild(argv) {
         }
       }
 
-      return serve();
-    });
+      return serve()
+    })
 
-    server.listen(argv.port);
+    server.listen(argv.port)
 
-    const wss = new WebSocketServer({ port: argv.wsPort });
+    const wss = new WebSocketServer({ port: argv.wsPort })
 
     wss.on("connection", (ws) => connections.push(ws))
     console.log(
       chalk.cyan(`Started server listening at http://localhost:${argv.port}${argv.baseDir}`),
-    );
-  } 
-  else {
-    await build(clientRefresh);
-    ctx.dispose();
+    )
+  } else {
+    await build(clientRefresh)
+    ctx.dispose()
   }
 
   if (argv.watch) {
@@ -458,7 +457,7 @@ export async function handleBuild(argv) {
       "**/*.tsx",
       "**/*.scss",
       "package.json",
-    ]);
+    ])
 
     chokidar
       .watch(paths, { ignoreInitial: true })
@@ -466,7 +465,7 @@ export async function handleBuild(argv) {
       .on("change", () => build(clientRefresh))
       .on("unlink", () => build(clientRefresh))
 
-    console.log(chalk.grey("hint: exit with ctrl+c"));
+    console.log(chalk.grey("hint: exit with ctrl+c"))
   }
 }
 
@@ -475,33 +474,32 @@ export async function handleBuild(argv) {
  * @param {*} argv arguments for `update`
  */
 export async function handleUpdate(argv) {
-  const contentFolder = resolveContentPath(argv.directory);
+  const contentFolder = resolveContentPath(argv.directory)
 
-  console.log(chalk.bgGreen.black(`\n Website v${version} \n`));
-  console.log("Backing up your content");
-  
+  console.log(chalk.bgGreen.black(`\n Website v${version} \n`))
+  console.log("Backing up your content")
+
   execSync(
     `git remote show upstream || git remote add upstream https://github.com/Tim-van-Oudheusden/obsidian-hoster.git`,
-  );
+  )
 
-  await stashContentFolder(contentFolder);
+  await stashContentFolder(contentFolder)
 
   console.log(
     "Pulling updates... you may need to resolve some `git` conflicts if you've made changes to components or plugins.",
   )
 
   try {
-    gitPull(UPSTREAM_NAME, WEBSITE_SOURCE_BRANCH);
-  } 
-  catch {
-    console.log(chalk.red("An error occurred above while pulling updates."));
-    await popContentFolder(contentFolder);
-    return;
+    gitPull(UPSTREAM_NAME, WEBSITE_SOURCE_BRANCH)
+  } catch {
+    console.log(chalk.red("An error occurred above while pulling updates."))
+    await popContentFolder(contentFolder)
+    return
   }
 
-  await popContentFolder(contentFolder);
+  await popContentFolder(contentFolder)
 
-  console.log("Ensuring dependencies are up to date");
+  console.log("Ensuring dependencies are up to date")
 
   /*
   On Windows, if the command `npm` is really `npm.cmd', this call fails
@@ -515,19 +513,18 @@ export async function handleUpdate(argv) {
   See: https://nodejs.org/api/child_process.html#spawning-bat-and-cmd-files-on-windows
   */
 
-  const opts = { stdio: "inherit" };
+  const opts = { stdio: "inherit" }
 
   if (process.platform === "win32") {
-    opts.shell = true;
+    opts.shell = true
   }
 
-  const res = spawnSync("npm", ["i"], opts);
+  const res = spawnSync("npm", ["i"], opts)
 
   if (res.status === 0) {
-    console.log(chalk.green("Done!"));
-  } 
-  else {
-    console.log(chalk.red("An error occurred above while installing dependencies."));
+    console.log(chalk.green("Done!"))
+  } else {
+    console.log(chalk.red("An error occurred above while installing dependencies."))
   }
 }
 
@@ -536,9 +533,9 @@ export async function handleUpdate(argv) {
  * @param {*} argv arguments for `restore`
  */
 export async function handleRestore(argv) {
-  const contentFolder = resolveContentPath(argv.directory);
+  const contentFolder = resolveContentPath(argv.directory)
 
-  await popContentFolder(contentFolder);
+  await popContentFolder(contentFolder)
 }
 
 /**
@@ -546,75 +543,74 @@ export async function handleRestore(argv) {
  * @param {*} argv arguments for `sync`
  */
 export async function handleSync(argv) {
-  const contentFolder = resolveContentPath(argv.directory);
+  const contentFolder = resolveContentPath(argv.directory)
 
-  console.log(chalk.bgGreen.black(`\n Website v${version} \n`));
-  console.log("Backing up your content");
+  console.log(chalk.bgGreen.black(`\n Website v${version} \n`))
+  console.log("Backing up your content")
 
   if (argv.commit) {
-    const contentStat = await fs.promises.lstat(contentFolder);
+    const contentStat = await fs.promises.lstat(contentFolder)
     if (contentStat.isSymbolicLink()) {
-      const linkTarg = await fs.promises.readlink(contentFolder);
-      console.log(chalk.yellow("Detected symlink, trying to dereference before committing"));
+      const linkTarg = await fs.promises.readlink(contentFolder)
+      console.log(chalk.yellow("Detected symlink, trying to dereference before committing"))
 
       // stash symlink file
-      await stashContentFolder(contentFolder);
+      await stashContentFolder(contentFolder)
 
       // follow symlink and copy content
       await fs.promises.cp(linkTarg, contentFolder, {
         recursive: true,
         preserveTimestamps: true,
-      });
+      })
     }
 
     const currentTimestamp = new Date().toLocaleString("en-US", {
       dateStyle: "medium",
       timeStyle: "short",
-    });
+    })
 
-    const commitMessage = argv.message ?? `Website sync: ${currentTimestamp}`;
+    const commitMessage = argv.message ?? `Website sync: ${currentTimestamp}`
 
-    spawnSync("git", ["add", "."], { stdio: "inherit" });
-    spawnSync("git", ["commit", "-m", commitMessage], { stdio: "inherit" });
+    spawnSync("git", ["add", "."], { stdio: "inherit" })
+    spawnSync("git", ["commit", "-m", commitMessage], { stdio: "inherit" })
 
     if (contentStat.isSymbolicLink()) {
       // put symlink back
-      await popContentFolder(contentFolder);
+      await popContentFolder(contentFolder)
     }
   }
 
-  await stashContentFolder(contentFolder);
+  await stashContentFolder(contentFolder)
 
   if (argv.pull) {
     console.log(
       "Pulling updates from your repository. You may need to resolve some `git` conflicts if you've made changes to components or plugins.",
-    );
+    )
     try {
-      gitPull(ORIGIN_NAME, WEBSITE_SOURCE_BRANCH);
-    } 
-    catch {
-      console.log(chalk.red("An error occurred above while pulling updates."));
-      await popContentFolder(contentFolder);
-      return;
+      gitPull(ORIGIN_NAME, WEBSITE_SOURCE_BRANCH)
+    } catch {
+      console.log(chalk.red("An error occurred above while pulling updates."))
+      await popContentFolder(contentFolder)
+      return
     }
   }
 
-  await popContentFolder(contentFolder);
+  await popContentFolder(contentFolder)
 
   if (argv.push) {
-    console.log("Pushing changes");
+    console.log("Pushing changes")
 
-    const currentBranch = execSync("git rev-parse --abbrev-ref HEAD").toString().trim();
+    const currentBranch = execSync("git rev-parse --abbrev-ref HEAD").toString().trim()
 
     const res = spawnSync("git", ["push", "-uf", ORIGIN_NAME, currentBranch], {
       stdio: "inherit",
-    });
+    })
 
     if (res.status !== 0) {
-      console.log(chalk.red(`An error occurred above while pushing to remote ${ORIGIN_NAME}.`));
-      return;
+      console.log(chalk.red(`An error occurred above while pushing to remote ${ORIGIN_NAME}.`))
+      return
     }
   }
 
-  console.log(chalk.green("Done!"));
+  console.log(chalk.green("Done!"))
 }

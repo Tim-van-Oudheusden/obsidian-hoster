@@ -1,9 +1,9 @@
 // @ts-ignore
-import readerModeScript from "./scripts/readermode.inline";
-import styles from "./styles/readermode.scss";
-import { WebsiteComponent, WebsiteComponentConstructor, WebsiteComponentProps } from "./types";
-import { i18n } from "../i18n";
-import { classNames } from "../util/lang";
+import readerModeScript from "./scripts/readermode.inline"
+import styles from "./styles/readermode.scss"
+import { WebsiteComponent, WebsiteComponentConstructor, WebsiteComponentProps } from "./types"
+import { i18n } from "../i18n"
+import { classNames } from "../util/lang"
 
 const ReaderMode: WebsiteComponent = ({ displayClass, cfg }: WebsiteComponentProps) => {
   return (
@@ -29,10 +29,10 @@ const ReaderMode: WebsiteComponent = ({ displayClass, cfg }: WebsiteComponentPro
         </g>
       </svg>
     </button>
-  );
+  )
 }
 
-ReaderMode.beforeDOMLoaded = readerModeScript;
-ReaderMode.css = styles;
+ReaderMode.beforeDOMLoaded = readerModeScript
+ReaderMode.css = styles
 
-export default (() => ReaderMode) satisfies WebsiteComponentConstructor;
+export default (() => ReaderMode) satisfies WebsiteComponentConstructor

@@ -463,7 +463,7 @@ export const ObsidianFlavoredMarkdown: WebsiteTransformerPlugin<Partial<Options>
                     ],
                   })
                 }
-                
+
                 // For the rest of the MD callout elements other than the title, wrap them with
                 // two nested HTML <div>s (use some hacked mdhast component to achieve this) of
                 // class `callout-content` and `callout-content-inner` respectively for

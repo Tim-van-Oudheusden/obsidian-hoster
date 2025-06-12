@@ -69,14 +69,14 @@ type TweenNode = {
 }
 
 async function determineGraphicsAPI(): Promise<"webgpu" | "webgl"> {
-  const adapter = await navigator.gpu?.requestAdapter().catch(() => null);
-  const device = adapter && (await adapter.requestDevice().catch(() => null));
+  const adapter = await navigator.gpu?.requestAdapter().catch(() => null)
+  const device = adapter && (await adapter.requestDevice().catch(() => null))
 
   if (!device) {
-    return "webgl";
+    return "webgl"
   }
 
-  const canvas = document.createElement("canvas");
+  const canvas = document.createElement("canvas")
 
   const gl =
     (canvas.getContext("webgl2") as WebGL2RenderingContext | null) ??
@@ -84,13 +84,13 @@ async function determineGraphicsAPI(): Promise<"webgpu" | "webgl"> {
 
   // have to return webgl so pixijs automatically falls back to canvas
   if (!gl) {
-    return "webgl";
+    return "webgl"
   }
 
-  const webglMaxTextures = gl.getParameter(gl.MAX_TEXTURE_IMAGE_UNITS);
-  const webgpuMaxTextures = device.limits.maxSampledTexturesPerShaderStage;
+  const webglMaxTextures = gl.getParameter(gl.MAX_TEXTURE_IMAGE_UNITS)
+  const webgpuMaxTextures = device.limits.maxSampledTexturesPerShaderStage
 
-  return webglMaxTextures === webgpuMaxTextures ? "webgpu" : "webgl";
+  return webglMaxTextures === webgpuMaxTextures ? "webgpu" : "webgl"
 }
 
 async function renderGraph(graph: HTMLElement, fullSlug: FullSlug) {
@@ -374,9 +374,9 @@ async function renderGraph(graph: HTMLElement, fullSlug: FullSlug) {
   tweens.forEach((tween) => tween.stop())
   tweens.clear()
 
-  const pixiPreference = await determineGraphicsAPI();
+  const pixiPreference = await determineGraphicsAPI()
 
-  const app = new Application();
+  const app = new Application()
 
   await app.init({
     width,
@@ -388,9 +388,9 @@ async function renderGraph(graph: HTMLElement, fullSlug: FullSlug) {
     preference: pixiPreference,
     resolution: window.devicePixelRatio,
     eventMode: "static",
-  });
+  })
 
-  graph.appendChild(app.canvas);
+  graph.appendChild(app.canvas)
 
   const stage = app.stage
   stage.interactive = false
