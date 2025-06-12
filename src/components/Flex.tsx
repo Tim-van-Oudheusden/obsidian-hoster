@@ -1,5 +1,6 @@
-import { concatenateResources } from "../util/resources"
-import { WebsiteComponent, WebsiteComponentConstructor, WebsiteComponentProps } from "./types"
+import { concatenateResources } from "../util/resources";
+import { classNames } from "../util/lang";
+import { WebsiteComponent, WebsiteComponentConstructor, WebsiteComponentProps } from "./types";
 
 type FlexConfig = {
   components: {
@@ -18,12 +19,15 @@ type FlexConfig = {
 
 export default ((config: FlexConfig) => {
   const Flex: WebsiteComponent = (props: WebsiteComponentProps) => {
-    const direction = config.direction ?? "row"
-    const wrap = config.wrap ?? "nowrap"
-    const gap = config.gap ?? "1rem"
+    const direction = config.direction ?? "row";
+    const wrap = config.wrap ?? "nowrap";
+    const gap = config.gap ?? "1rem";
 
     return (
-      <div style={`display: flex; flex-direction: ${direction}; flex-wrap: ${wrap}; gap: ${gap};`}>
+      <div
+        class={classNames(props.displayClass, "flex-component")}
+        style={`flex-direction: ${direction}; flex-wrap: ${wrap}; gap: ${gap};`}
+      >
         {config.components.map((c) => {
           const grow = c.grow ? 1 : 0
           const shrink = (c.shrink ?? true) ? 1 : 0
@@ -38,18 +42,21 @@ export default ((config: FlexConfig) => {
             >
               <c.Component {...props} />
             </div>
-          )
+          );
         })}
       </div>
-    )
+    );
   }
 
   Flex.afterDOMLoaded = concatenateResources(
     ...config.components.map((c) => c.Component.afterDOMLoaded),
-  )
+  );
+
   Flex.beforeDOMLoaded = concatenateResources(
     ...config.components.map((c) => c.Component.beforeDOMLoaded),
-  )
-  Flex.css = concatenateResources(...config.components.map((c) => c.Component.css))
-  return Flex
-}) satisfies WebsiteComponentConstructor<FlexConfig>
+  );
+
+  Flex.css = concatenateResources(...config.components.map((c) => c.Component.css));
+
+  return Flex;
+}) satisfies WebsiteComponentConstructor<FlexConfig>;
