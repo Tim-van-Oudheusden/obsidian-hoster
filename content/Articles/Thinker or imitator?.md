@@ -2,6 +2,7 @@
 title: Thinker or imitator?
 socialImage: images/cover.png
 publishDate: 2025-04-18
+draft: "true"
 ---
 # Introduction
 This article is inspired by a recent video of [Northernlion](https://www.youtube.com/@Northernlion) that created a chain of thoughts in my mind. How many of your opinions are yours truly? And how many thoughts are based on what the mainstream consensus is? Even complot theory believers (e.g. flat earth) are a paradigm of this behavior, the only difference being a drive for a feeling of pre-eminence. 
