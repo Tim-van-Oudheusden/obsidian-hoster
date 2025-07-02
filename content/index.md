@@ -7,8 +7,6 @@ socialImage: images/cover.png
 
 [[My operating system is a container image, yes, really]]
 
-[[Thinker or imitator?]]
-
 [[Yoga Nidra, a way to be at peace in chaos]]
 
 # Guides
