@@ -5,7 +5,7 @@ on:
     branches: [main]
     paths:
       - .github/workflows/docker-build-push.yaml
-      - src/**
+      - website/**
   workflow_dispatch:
 
 jobs:

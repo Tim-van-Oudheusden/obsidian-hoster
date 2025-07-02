@@ -53,7 +53,7 @@ function* chunks<T>(arr: T[], n: number) {
 async function transpileWorkerScript() {
   // transpile worker script
   const cacheFile = "./.website-cache/transpiled-worker.mjs"
-  const fp = "./src/worker.ts"
+  const fp = "./website/worker.ts"
   return esbuild.build({
     entryPoints: [fp],
     outfile: path.join(WEBSITE, cacheFile),

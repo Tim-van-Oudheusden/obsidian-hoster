@@ -1,8 +1,8 @@
-import { WebsiteConfig } from "./src/cfg"
-import * as Plugin from "./src/plugins"
+import { WebsiteConfig } from "./website/cfg"
+import * as Plugin from "./website/plugins"
 
 /**
- * Website 4 Configuration
+ * Website Configuration
  *
  */
 const config: WebsiteConfig = {
@@ -86,7 +86,6 @@ const config: WebsiteConfig = {
       Plugin.Assets(),
       Plugin.Static(),
       Plugin.NotFoundPage(),
-      // Comment out CustomOgImages to speed up build time
       Plugin.CustomOgImages(),
     ],
   },

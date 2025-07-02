@@ -12,12 +12,12 @@
     "url": "https://github.com/Tim-van-Oudheusden/obsidian-hoster"
   },
   "scripts": {
-    "website": "./src/bootstrap-cli.mjs",
+    "website": "./website/bootstrap-cli.mjs",
     "docs": "npx website build --serve -d docs",
     "check": "tsc --noEmit && npx prettier . --check",
     "format": "npx prettier . --write",
     "test": "tsx --test",
-    "profile": "0x -D prof ./src/bootstrap-cli.mjs build --concurrency=1"
+    "profile": "0x -D prof ./website/bootstrap-cli.mjs build --concurrency=1"
   },
   "engines": {
     "npm": ">=10.9.2",
@@ -32,7 +32,7 @@
     "website"
   ],
   "bin": {
-    "website": "./src/bootstrap-cli.mjs"
+    "website": "./website/bootstrap-cli.mjs"
   },
   "dependencies": {
     "@clack/prompts": "^0.10.1",

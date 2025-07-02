@@ -1,5 +1,5 @@
-import { PageLayout, SharedLayout } from "./src/cfg"
-import * as Component from "./src/components"
+import { PageLayout, SharedLayout } from "./website/cfg"
+import * as Component from "./website/components"
 
 // components shared across all pages
 export const sharedPageComponents: SharedLayout = {
@@ -17,9 +17,9 @@ export const sharedPageComponents: SharedLayout = {
         category: "Announcements",
         // from data-category-id
         categoryId: "DIC_kwDONrxPQs4CpFmL",
-        themeUrl: "https://timvanoudheusden.com/static/giscus", // corresponds to src/static/giscus/
-        lightTheme: "light-theme", // corresponds to light-theme.css in src/static/giscus/
-        darkTheme: "dark-theme", // corresponds to dark-theme.css src/static/giscus/
+        themeUrl: "https://timvanoudheusden.com/static/giscus", // corresponds to website/static/giscus/
+        lightTheme: "light-theme", // corresponds to light-theme.css in website/static/giscus/
+        darkTheme: "dark-theme", // corresponds to dark-theme.css website/static/giscus/
       },
     }),
   ],

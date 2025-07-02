@@ -315,7 +315,7 @@ export async function handleBuild(argv) {
     release()
 
     if (argv.bundleInfo) {
-      const outputFileName = "src/.website-cache/transpiled-build.mjs"
+      const outputFileName = "website/.website-cache/transpiled-build.mjs"
       const meta = result.metafile.outputs[outputFileName]
       console.log(
         `Successfully transpiled ${Object.keys(meta.inputs).length} files (${prettyBytes(
@@ -452,8 +452,8 @@ export async function handleBuild(argv) {
   if (argv.watch) {
     const paths = await globby([
       "**/*.ts",
-      "src/cli/*.js",
-      "src/static/**/*",
+      "website/cli/*.js",
+      "website/static/**/*",
       "**/*.tsx",
       "**/*.scss",
       "package.json",
