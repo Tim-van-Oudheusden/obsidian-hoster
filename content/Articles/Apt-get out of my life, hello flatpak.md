@@ -4,9 +4,10 @@ socialImage: images/cover.png
 publishDate: 2025-07-02
 ---
 # No, don't embrace the terminal
-At the beginning of my software development career, long before I transitioned to Linux, I was introduced to the terminal. It started with some simple git command's and expanded into various other branches. As a developer you get used to it. Yet this is the very pitfall that has plagued the Linux desktop experience for the pas few decades. 
+At the beginning of my software development career, long before I transitioned to Linux, I was introduced to the terminal. It started with some simple git command's and expanded into various other branches. As a developer you get used to it. Yet this is the very pitfall that has plagued the Linux desktop experience for the past few decades. 
 
-Let me start by saying I can't fault the Linux ecosystem for a lack of funding for advertising, or Microsoft's [predatory behavior](https://www.justice.gov/atr/us-v-microsoft-proposed-findings-fact-0) and [Embrace, extend, and extinguish](https://en.wikipedia.org/wiki/Embrace,_extend,_and_extinguish) mentality. However, I will criticize it for misunderstanding the average user. Whether you blame pop culture or not, the terminal is a hostile place for the majority of the population. A loud minority of switchers to Linux will tell you that they love "the control" and "seeing every detail" with the terminal. Be not mistaken, for this is not representative of the majority consensus.
+Let me start by saying I can't fault the Linux ecosystem for a lack of funding for advertising, or Microsoft's [predatory behavior](https://www.justice.gov/atr/us-v-microsoft-proposed-findings-fact-0) and [Embrace, extend, and extinguish](https://en.wikipedia.org/wiki/Embrace,_extend,_and_extinguish) mentality. However, I will criticize it for misunderstanding the average user. Whether you blame pop culture or not, the terminal is a hostile place for the majority of the population. 
+A loud minority of switchers to Linux will tell you that they love "the control" and "seeing every detail" with the terminal. Be not mistaken, for this is not representative of the majority consensus.
 
 While I might agree that using the terminal to install software is not very difficult, it is still a big barrier of entry. And additionally, it does not leave a good first impression. I wouldn't want my mother to type `sudo apt install <package>` and neither should you. Yet this is **still** the recommended way to install for a very large section of software on Linux.
 
